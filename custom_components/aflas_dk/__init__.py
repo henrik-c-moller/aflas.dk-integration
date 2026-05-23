@@ -26,6 +26,20 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
         entry.data["password"],
         entry.data["vaerknummer"],
     )
+    login_resp = await hass.async_add_executor_job(api.login)
+    if login_resp.status_code != 302:
+        _LOGGER.warning(
+            "Aflas.dk login failed during setup: status=%s response=%s",
+            login_resp.status_code,
+            login_resp.text[:200],
+        )
+        _LOGGER.debug(
+            "Aflas.dk login response headers=%s cookies=%s",
+            login_resp.headers,
+            api.session.cookies.get_dict(),
+        )
+        return False
+
     settings_resp = await hass.async_add_executor_job(api.get_settings)
     try:
         js = settings_resp.json()
