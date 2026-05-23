@@ -11,7 +11,8 @@ from .sensor_debug import AflasDebugSensor
 from .sensor_rolling import AflasRollingUsageSensor
 from .sensor_total import AflasTotalSensor
 from .sensor_usage import AflasWaterUsageSensor
-from .sensor_flow import AflasWaterFlowSensor   # ← MOVED HERE
+from .sensor_flow import AflasWaterFlowSensor
+from .sensor_update_monitor import AflasLastUpdateSensor
 from .utils import parse_aflas_label
 from . import DOMAIN
 
@@ -46,5 +47,6 @@ async def async_setup_entry(hass, entry, async_add_entities):
 
         # Debug
         entities.append(AflasDebugSensor(coordinator, meter))
+        entities.append(AflasLastUpdateSensor(coordinator, meter))
 
     async_add_entities(entities, True)
