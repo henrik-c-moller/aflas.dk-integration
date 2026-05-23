@@ -5,7 +5,8 @@ import logging
 from homeassistant.core import HomeAssistant
 from homeassistant.config_entries import ConfigEntry
 
-from . import DOMAIN
+DOMAIN = "aflas_dk"
+
 from .coordinator import AflasCoordinator
 from .api import AflasAPI
 
