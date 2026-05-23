@@ -11,7 +11,7 @@ from homeassistant.helpers.update_coordinator import (
 )
 
 from .api import AflasAPI
-from . import DOMAIN
+from .const import DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 

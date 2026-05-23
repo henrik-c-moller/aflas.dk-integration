@@ -7,9 +7,8 @@ from homeassistant import config_entries
 from homeassistant.core import callback
 
 from .api import AflasAPI
+from .const import DOMAIN
 from .options_flow import AflasOptionsFlow
-
-DOMAIN = "aflas_dk"
 
 _LOGGER = logging.getLogger(__name__)
 

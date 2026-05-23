@@ -14,7 +14,7 @@ from .sensor_usage import AflasWaterUsageSensor
 from .sensor_flow import AflasWaterFlowSensor
 from .sensor_update_monitor import AflasLastUpdateSensor
 from .utils import parse_aflas_label
-from . import DOMAIN
+from .const import DOMAIN
 
 
 async def async_setup_entry(hass, entry, async_add_entities):

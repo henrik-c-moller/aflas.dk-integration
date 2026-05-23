@@ -5,8 +5,7 @@ import logging
 from homeassistant.core import HomeAssistant
 from homeassistant.config_entries import ConfigEntry
 
-DOMAIN = "aflas_dk"
-PLATFORMS = ["sensor"]
+from .const import DOMAIN, PLATFORMS
 
 _LOGGER = logging.getLogger(__name__)
 

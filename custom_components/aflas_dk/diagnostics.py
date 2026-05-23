@@ -3,7 +3,7 @@ from __future__ import annotations
 from homeassistant.core import HomeAssistant
 from homeassistant.config_entries import ConfigEntry
 
-from . import DOMAIN
+from .const import DOMAIN
 
 
 async def async_get_config_entry_diagnostics(
