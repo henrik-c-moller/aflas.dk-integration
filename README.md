@@ -1,7 +1,5 @@
 # Aflas.dk Water Meter for Home Assistant
 
-# Aflas.dk Water Meter for Home Assistant
-
 ![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)
 ![Version](https://img.shields.io/github/v/release/henrikmoller/aflas_dk?label=version)
 ![Downloads](https://img.shields.io/github/downloads/henrikmoller/aflas_dk/total.svg)
