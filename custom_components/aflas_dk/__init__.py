@@ -8,13 +8,12 @@ from homeassistant.config_entries import ConfigEntry
 DOMAIN = "aflas_dk"
 PLATFORMS = ["sensor"]
 
-from .coordinator import AflasCoordinator
-from .api import AflasAPI
-
 _LOGGER = logging.getLogger(__name__)
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
+    from .coordinator import AflasCoordinator
+    from .api import AflasAPI
     hass.data.setdefault(DOMAIN, {})
     hass.data[DOMAIN].setdefault(entry.entry_id, {})
 
