@@ -1,94 +1,87 @@
-# Henrik’s Home Assistant Integrations (HACS Repository)
+# Aflas.dk Water Meter for Home Assistant
+
+# Aflas.dk Water Meter for Home Assistant
 
 ![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)
-![Version](https://img.shields.io/github/v/release/henrikmoller/ha-integrations?label=latest)
-![Downloads](https://img.shields.io/github/downloads/henrikmoller/ha-integrations/total.svg)
+![Version](https://img.shields.io/github/v/release/henrikmoller/aflas_dk?label=version)
+![Downloads](https://img.shields.io/github/downloads/henrikmoller/aflas_dk/total.svg)
 ![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)
 
-This repository contains a collection of **custom Home Assistant integrations** developed and maintained by Henrik Møller.  
-The repository is structured as a **HACS custom repository**, allowing users to install and update the included integrations directly through HACS.
+This custom integration provides access to water consumption data from **Aflas.dk** directly inside Home Assistant.  
+It exposes a sensor that reports **today’s realtime water usage in cubic meters (m³)**, updated throughout the day, and fully compatible with the **Home Assistant Energy Dashboard**.
 
-This repository is **not affiliated with Home Assistant, Nabu Casa, or any third‑party services** that the integrations may interact with.
-
----
-
-## 📦 Included Integrations
-
-This repository may contain one or more of the following:
-
-- Custom integrations  
-- Experimental components  
-- Developer utilities  
-- Personal tools and prototypes  
-
-The exact contents may change over time as new integrations are added or old ones are removed or refactored.
-
-Each integration has its own folder and its own internal documentation.
+The integration is configured entirely through the **Home Assistant UI (config flow)** — no YAML required.
 
 ---
 
-## 🧪 Development Status
+## 🚀 Installation (HACS)
 
-All integrations in this repository are developed on a **best‑effort basis**.  
-They may be experimental, incomplete, or subject to change without notice.
-
-Bug reports and pull requests are welcome, but no guarantees are made regarding:
-
-- Response times  
-- Feature requests  
-- Long‑term maintenance  
-- Compatibility with future Home Assistant versions  
+1. Open **HACS → Integrations**
+2. Select **Custom repositories**
+3. Add your GitHub repository  
+   - Category: **Integration**
+4. Install the integration from HACS
+5. Restart Home Assistant
 
 ---
 
-## ⚠️ Disclaimer
+## ⚙️ Setup via UI (Config Flow)
 
-Use of the code in this repository is **entirely at your own risk**.
+After installation:
 
-All software is provided **“as is”**, **without any warranty**, express or implied, including but not limited to:
+1. Go to **Settings → Devices & Services**
+2. Click **Add Integration**
+3. Search for **Aflas.dk**
+4. Enter:
+   - **Username**
+   - **Password**
+   - **Værknummer** (utility ID)
 
-- No guarantee of correctness  
-- No guarantee of reliability  
-- No guarantee of compatibility  
-- No guarantee of uptime or availability  
-- No guarantee that third‑party services will not change and break functionality  
-
-The author and contributors are **not liable** for:
-
-- Data loss  
-- Incorrect data  
-- Service interruptions  
-- Damages of any kind resulting from the use of this code  
-
-By using any part of this repository, you agree that **you alone are responsible** for any consequences.
+The integration will **validate your login** before creating the configuration entry.  
+If the credentials are incorrect, Home Assistant will show an error message.
 
 ---
 
-## 📄 License
+## 🛠️ Changing Login Details (Options Flow)
 
-All code in this repository is licensed under the  
-**GNU General Public License v3.0 (GPL‑3.0)**.
+You can update your credentials without removing the integration:
 
-See the included `LICENSE` file for full legal text.
+1. Go to **Settings → Devices & Services**
+2. Locate **Aflas.dk**
+3. Click **Configure**
+4. Update:
+   - Username  
+   - Password  
+   - Værknummer  
 
----
-
-## 🤝 Contributing
-
-Contributions are welcome.
-
-If you want to help:
-
-- Open an issue  
-- Submit a pull request  
-- Suggest improvements  
-- Report bugs or API changes  
-
-All contributions must follow the GPL‑3.0 license.
+The integration validates the login again before saving changes.
 
 ---
 
-## 📬 Contact
+## 📊 Sensor Information
 
-If you encounter issues or have suggestions, please open an issue in this repository.
+The integration exposes one primary sensor:
+
+### **Aflas.dk Water Usage (m³)**  
+- Shows **today’s realtime consumption**
+- Increases throughout the day
+- Automatically resets at midnight (based on Aflas.dk data)
+- Fully compatible with **Energy Dashboard**
+- Uses date‑matching logic to correctly identify today’s usage from Aflas.dk’s label/usage arrays
+
+---
+
+## 🔄 Update Interval
+
+Data is refreshed automatically every **hour**
+
+---
+
+## 📝 Notes
+
+This integration is **not affiliated with Aflas.dk**.  
+It is provided for personal use and without warranty.
+
+---
+
 
