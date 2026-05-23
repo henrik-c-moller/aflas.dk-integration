@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime, timedelta
 
 from homeassistant.components.sensor import SensorEntity
-from homeassistant.const import VOLUME_CUBIC_METERS
+from homeassistant.const import UnitOfVolume
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .coordinator import AflasCoordinator
@@ -20,7 +20,7 @@ class AflasRollingUsageSensor(CoordinatorEntity, SensorEntity):
     - last 30 days
     """
 
-    _attr_native_unit_of_measurement = VOLUME_CUBIC_METERS
+    _attr_native_unit_of_measurement = UnitOfVolume.CUBIC_METERS
     _attr_icon = "mdi:chart-line"
 
     def __init__(self, coordinator: AflasCoordinator, meter: str, window_hours: int):

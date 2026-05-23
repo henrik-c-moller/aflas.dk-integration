@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 
 from homeassistant.components.sensor import SensorEntity
-from homeassistant.const import VOLUME_CUBIC_METERS
+from homeassistant.const import UnitOfVolume
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .utils import parse_aflas_label
@@ -16,7 +16,7 @@ class AflasWaterUsageSensor(CoordinatorEntity, SensorEntity):
     Moved from sensor.py without modifying logic.
     """
 
-    _attr_native_unit_of_measurement = VOLUME_CUBIC_METERS
+    _attr_native_unit_of_measurement = UnitOfVolume.CUBIC_METERS
     _attr_icon = "mdi:water"
 
     def __init__(self, coordinator: AflasCoordinator, meter_number: str):

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from homeassistant.components.sensor import SensorEntity
-from homeassistant.const import VOLUME_CUBIC_METERS
+from homeassistant.const import UnitOfVolume
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .utils import parse_aflas_label
@@ -17,7 +17,7 @@ class AflasTotalSensor(CoordinatorEntity, SensorEntity):
     - If none found → use index 0
     """
 
-    _attr_native_unit_of_measurement = VOLUME_CUBIC_METERS
+    _attr_native_unit_of_measurement = UnitOfVolume.CUBIC_METERS
     _attr_icon = "mdi:counter"
 
     def __init__(self, coordinator, meter):

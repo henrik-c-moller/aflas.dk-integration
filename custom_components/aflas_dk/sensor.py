@@ -3,7 +3,6 @@ from __future__ import annotations
 from datetime import datetime
 
 from homeassistant.components.sensor import SensorEntity
-from homeassistant.const import VOLUME_CUBIC_METERS
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .coordinator import AflasCoordinator
