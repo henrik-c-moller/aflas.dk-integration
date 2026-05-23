@@ -7,13 +7,13 @@ class AflasOptionsFlow(config_entries.OptionsFlow):
     """Handle Aflas.dk options flow."""
 
     def __init__(self, config_entry):
-        self.config_entry = config_entry
+        self._config_entry = config_entry
 
     async def async_step_init(self, user_input=None) -> FlowResult:
         if user_input is not None:
             return self.async_create_entry(title="", data=user_input)
 
-        options = self.config_entry.options
+        options = self._config_entry.options
 
         return self.async_show_form(
             step_id="init",
